@@ -22,11 +22,13 @@ void Bresenham(int x0, int y0, int x1, int y1)
             step++;
             if (p >= 0)
             {
+                putpixel(x,y,2);
                 y = y + 1;
                 p = p + 2 * dy - 2 * dx;
             }
             else
             {
+                putpixel(x,y,2);
                 p = p + 2 * dy;
             }
             x = x + 1;
@@ -44,11 +46,13 @@ void Bresenham(int x0, int y0, int x1, int y1)
             step++;
             if (p >= 0)
             {
+                putpixel(x,y,2);
                 x = x + 1;
                 p = p + 2 * dx - 2 * dy;
             }
             else
             {
+                putpixel(x,y,2);
                 p = p + 2 * dx;
             }
             y = y + 1;
@@ -62,6 +66,8 @@ void Bresenham(int x0, int y0, int x1, int y1)
 int main()
 {
     int x0, y0, x1, y1;
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, (char *)"");
     cin >> x0 >> y0;
     cin >> x1 >> y1;
     if (x0 > x1)
@@ -72,4 +78,6 @@ int main()
     cout << "Initial    Point: (" << x0 << "," << y0 << ")" << endl;
 
     Bresenham(x0, y0, x1, y1);
+     getch();
+     closegraph();
 }
